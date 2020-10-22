@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="002a5ff6-8a48-4de6-8afc-55f9330a1478" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/mongo-cluster-docker-compose.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/setups.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,7 +61,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1603347749537</updated>
-      <workItem from="1603347751140" duration="6230000" />
+      <workItem from="1603347751140" duration="6509000" />
     </task>
     <task id="LOCAL-00001" summary="v1">
       <created>1603352854101</created>
@@ -82,7 +77,21 @@
       <option name="project" value="LOCAL" />
       <updated>1603353773682</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="v1">
+      <created>1603354007080</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1603354007080</updated>
+    </task>
+    <task id="LOCAL-00004" summary="v1">
+      <created>1603354019720</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1603354019720</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -94,13 +103,13 @@
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="-480" y="-1358" key="CommitChangelistDialog2" timestamp="1603354006995">
+    <state x="-480" y="-1358" key="CommitChangelistDialog2" timestamp="1603354019631">
       <screen x="-631" y="-1920" width="1080" height="1920" />
     </state>
-    <state x="-480" y="-1358" key="CommitChangelistDialog2/449.-1080.1920.1080/-631.-1920.1080.1920/0.0.1440.900@-631.-1920.1080.1920" timestamp="1603354006995" />
-    <state x="-491" y="-1220" key="Vcs.Push.Dialog.v2" timestamp="1603352863017">
+    <state x="-480" y="-1358" key="CommitChangelistDialog2/449.-1080.1920.1080/-631.-1920.1080.1920/0.0.1440.900@-631.-1920.1080.1920" timestamp="1603354019631" />
+    <state x="-491" y="-1220" key="Vcs.Push.Dialog.v2" timestamp="1603354027140">
       <screen x="-631" y="-1920" width="1080" height="1920" />
     </state>
-    <state x="-491" y="-1220" key="Vcs.Push.Dialog.v2/449.-1080.1920.1080/-631.-1920.1080.1920/0.0.1440.900@-631.-1920.1080.1920" timestamp="1603352863017" />
+    <state x="-491" y="-1220" key="Vcs.Push.Dialog.v2/449.-1080.1920.1080/-631.-1920.1080.1920/0.0.1440.900@-631.-1920.1080.1920" timestamp="1603354027140" />
   </component>
 </project>

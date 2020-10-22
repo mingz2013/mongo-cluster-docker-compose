@@ -31,15 +31,16 @@ Usage:
    make logs                           查看日志                            
                                                                           
                                                                           
-   make init-config                  初始化config集群                      
-   make init-shard                   初始化shard1，shard2                  
-   make add-shard                    shard1，shard2加入集群                
-   make create-database              创建database MyDatabase               
+   make init-config                    初始化config集群                    
+   make init-shard                     初始化shard1，shard2                
+   make add-shard                      shard1，shard2加入集群              
+   make create-database                创建database MyDatabase             
                                                                           
                                                                           
-   make echo-status                  查看集群状态                           
-   make echo-shard-status            查看分片状态                           
-   make others                       其他命令                              
-            
+   make echo-status                    查看集群状态                         
+   make echo-shard-status              查看分片状态                         
+   make others                         其他命令                            
+                                                                          
+                                         
 ```
 

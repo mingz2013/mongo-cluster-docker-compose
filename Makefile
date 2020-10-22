@@ -11,15 +11,15 @@ help:
 	@echo '   make logs                           查看日志                            '
 	@echo '                                                                          '
 	@echo '                                                                          '
-	@echo '   make init-config                  初始化config集群                      '
-	@echo '   make init-shard                   初始化shard1，shard2                  '
-	@echo '   make add-shard                    shard1，shard2加入集群                '
-	@echo '   make create-database              创建database MyDatabase               '
+	@echo '   make init-config                    初始化config集群                    '
+	@echo '   make init-shard                     初始化shard1，shard2                '
+	@echo '   make add-shard                      shard1，shard2加入集群              '
+	@echo '   make create-database                创建database MyDatabase             '
 	@echo '                                                                          '
 	@echo '                                                                          '
-	@echo '   make echo-status                  查看集群状态                           '
-	@echo '   make echo-shard-status            查看分片状态                           '
-	@echo '   make others                       其他命令                              '
+	@echo '   make echo-status                    查看集群状态                         '
+	@echo '   make echo-shard-status              查看分片状态                         '
+	@echo '   make others                         其他命令                            '
 	@echo '                                                                          '
 	@echo '                                                                          '
 
@@ -69,6 +69,7 @@ others:
 
 # To remove all data and re-initialize the cluster, make sure the containers are stopped and then:
 rm:
+	@echo 'are you makr sure bask up the datas??'
 	docker-compose rm
 
 # clean up docker-compose
