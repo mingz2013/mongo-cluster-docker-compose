@@ -1,0 +1,11 @@
+configsvr-01
+configsvr-02
+configsvr-03
+shardsvr-01-01
+shardsvr-01-02
+shardsvr-01-03
+shardsvr-02-01
+shardsvr-02-02
+shardsvr-02-03
+mongossvr-01
+mongossvr-02

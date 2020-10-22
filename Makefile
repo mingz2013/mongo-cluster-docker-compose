@@ -1,3 +1,28 @@
+help:
+	@echo '                                                                          '
+	@echo 'Makefile for docker compose mongo cluster                                                  '
+	@echo '                                                                          '
+	@echo 'Usage:                                                                    '
+	@echo '   make help                           show help                          '
+	@echo '                                                                          '
+	@echo '   make up                             启动服务                            '
+	@echo '   make down                           停止服务                            '
+	@echo '   make rm                             移除集群                            '
+	@echo '   make logs                           查看日志                            '
+	@echo '                                                                          '
+	@echo '                                                                          '
+	@echo '   make init-config                  初始化config集群                      '
+	@echo '   make init-shard                   初始化shard1，shard2                  '
+	@echo '   make add-shard                    shard1，shard2加入集群                '
+	@echo '   make create-database              创建database MyDatabase               '
+	@echo '                                                                          '
+	@echo '                                                                          '
+	@echo '   make echo-status                  查看集群状态                           '
+	@echo '   make echo-shard-status            查看分片状态                           '
+	@echo '   make others                       其他命令                              '
+	@echo '                                                                          '
+	@echo '                                                                          '
+
 # up docker-compose
 up:
 	docker-compose up -d
@@ -48,6 +73,8 @@ rm:
 
 # clean up docker-compose
 down:
-	docker-compose down -v --rmi all --remove-orphans
+	docker-compose down -v --remove-orphans
 
 
+logs:
+	docker-compose logs -f
