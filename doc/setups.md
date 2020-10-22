@@ -19,8 +19,8 @@ init-config:
 
 # init shard1, shard2
 init-shard:
-	docker-compose exec shardsvr-01-01 sh -c "mongo < /scripts/shard1.initate.js"
-	docker-compose exec shardsvr-02-01 sh -c "mongo < /scripts/shard2.initate.js"
+	docker-compose exec shardsvr-01-01 sh -c "mongo < /scripts/shard1.initiate.js"
+	docker-compose exec shardsvr-02-01 sh -c "mongo < /scripts/shard2.initiate.js"
 
 # add shard1, shard2 to cluster
 add-shard:
@@ -44,7 +44,7 @@ create-database:
 ```makefile
 # echo status
 echo-status:
-	docker-compose exec -it mongossvr-01 sh -c "echo 'sh.status()' | mongo --port 27017"
+	docker-compose exec mongossvr-01 sh -c "echo 'sh.status()' | mongo --port 27017"
 
 # echo shard status
 echo-shard-status:

@@ -1,3 +1,5 @@
+# help
+.PHONY: help
 help:
 	@echo '                                                                          '
 	@echo 'Makefile for docker compose mongo cluster                                                  '
@@ -24,40 +26,48 @@ help:
 	@echo '                                                                          '
 
 # up docker-compose
+.PHONY: up
 up:
 	docker-compose up -d
 
 # init config
+.PHONY: init-config
 init-config:
 	docker-compose exec configsvr-01 sh -c "mongo < /scripts/config.initiate.js"
 
 # init shard1, shard2
+.PHONY: init-shard
 init-shard:
-	docker-compose exec shardsvr-01-01 sh -c "mongo < /scripts/shard1.initate.js"
-	docker-compose exec shardsvr-02-01 sh -c "mongo < /scripts/shard2.initate.js"
+	docker-compose exec shardsvr-01-01 sh -c "mongo < /scripts/shard1.initiate.js"
+	docker-compose exec shardsvr-02-01 sh -c "mongo < /scripts/shard2.initiate.js"
 
 # add shard1, shard2 to cluster
+.PHONY: add-shard
 add-shard:
 	docker-compose exec mongossvr-01 sh -c "mongo < /scripts/mongos.addshard.js"
 
 
 # create database MyDatabase
+.PHONY: create-database
 create-database:
 	docker-compose exec mongossvr-01 sh -c "mongo < /scripts/mongos.create.database.js"
 
 
 
 # echo status
+.PHONY: echo-status
 echo-status:
-	docker-compose exec -it mongossvr-01 sh -c "echo 'sh.status()' | mongo --port 27017"
+	docker-compose exec mongossvr-01 sh -c "echo 'sh.status()' | mongo --port 27017"
 
 # echo shard status
+.PHONY: echo-shard-status
 echo-shard-status:
 	docker exec -it shardsvr-01-01 bash -c "echo 'rs.status()' | mongo --port 27017"
 	docker exec -it shardsvr-02-01 bash -c "echo 'rs.status()' | mongo --port 27017"
 
 
 # other commands
+.PHONY: others
 others:
 	docker exec -it configsvr-01 bash -c "echo 'rs.status()' | mongo --port 27017"
 
@@ -68,14 +78,25 @@ others:
 
 
 # To remove all data and re-initialize the cluster, make sure the containers are stopped and then:
+.PHONY: rm
 rm:
-	@echo 'are you makr sure bask up the datas??'
 	docker-compose rm
 
 # clean up docker-compose
+.PHONY: down
 down:
 	docker-compose down -v --remove-orphans
 
-
+# logs
+.PHONY: logs
 logs:
 	docker-compose logs -f
+
+# rm data
+.PHONY: rm-data
+rm-data:
+	@echo 'are you makr sure bask up the datas??'
+	rm configsvr-01 configsvr-02 configsvr-03 -r
+	rm mongossvr-01 mongossvr-02 -r
+	rm shardsvr-01-01 shardsvr-01-02 shardsvr-01-03 -r
+	rm shardsvr-02-01 shardsvr-02-02 shardsvr-02-03 -r
