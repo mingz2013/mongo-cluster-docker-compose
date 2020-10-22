@@ -32,6 +32,7 @@ Usage:
                                                                           
                                                                           
    make rm-data                        删除数据目录，谨慎操作，避免数据丢失    
+   make backup-data                    数据备份                            
                                                                           
                                                                           
    make init-config                    初始化config集群                    
@@ -42,7 +43,8 @@ Usage:
                                                                           
    make echo-status                    查看集群状态                         
    make echo-shard-status              查看分片状态                         
-   make others                         其他命令   
+   make others                         其他命令                            
+                                                     
 ```
 
 
