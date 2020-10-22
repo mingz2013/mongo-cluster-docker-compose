@@ -99,7 +99,4 @@ logs:
 .PHONY: rm-data
 rm-data:
 	@echo 'are you makr sure bask up the datas??'
-	rm configsvr-01 configsvr-02 configsvr-03 -r
-	rm mongossvr-01 mongossvr-02 -r
-	rm shardsvr-01-01 shardsvr-01-02 shardsvr-01-03 -r
-	rm shardsvr-02-01 shardsvr-02-02 shardsvr-02-03 -r
+	rm datas/* -r
