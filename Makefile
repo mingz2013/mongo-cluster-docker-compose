@@ -14,6 +14,7 @@ help:
 	@echo '                                                                          '
 	@echo '                                                                          '
 	@echo '   make rm-data                        删除数据目录，谨慎操作，避免数据丢失    '
+	@echo '   make backup-data                    数据备份                            '
 	@echo '                                                                          '
 	@echo '                                                                          '
 	@echo '   make init-config                    初始化config集群                    '
@@ -97,6 +98,13 @@ logs:
 
 # rm data
 .PHONY: rm-data
-rm-data:
-	@echo 'are you makr sure bask up the datas??'
+rm-data: backup-data
+	@echo 'are you make sure bask up the datas??'
 	rm datas/* -r
+
+# backup data
+.PHONY: backup-data
+backup-data:
+	tar -zcvf ./backup/datas-`date +"%Y-%m-%d-%H-%M-%S"`.tar.gz ./datas
+
+
