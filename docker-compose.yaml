@@ -1,0 +1,102 @@
+services:
+  configsvr-01:
+    image: mongo
+    container_name: configsvr-01
+    volumes:
+      - ./scripts/scripts
+      - ./configsvr-01:/db
+    command: mongod --configsvr --replSet rs-config-server --dbpath /db #--bind_ip localhost,<hostname(s)|ip address(es)>
+  configsvr-02:
+    image: mongo
+    container_name: configsvr-02
+    volumes:
+      - ./scripts/scripts
+      - ./configsvr-02:/db
+    command: mongod --configsvr --replSet rs-config-server --dbpath /db #--bind_ip localhost,<hostname(s)|ip address(es)>
+  configsvr-03:
+    image: mongo
+    container_name: configsvr-03
+    volumes:
+      - ./scripts/scripts
+      - ./configsvr-03:/db
+    command: mongod --configsvr --replSet rs-config-server --dbpath /db #--bind_ip localhost,<hostname(s)|ip address(es)>
+
+  shardsvr-01-01:
+    image: mongo
+    container_name: shardsvr-01-01
+    volumes:
+      - ./scripts/scripts
+      - ./shardsvr-01-01:/db
+    command: mongod --shardsvr --replSet rs-shard-server-01  --dbpath /db #--bind_ip localhost,<hostname(s)|ip address(es)>
+  shardsvr-01-02:
+    image: mongo
+    container_name: shardsvr-01-02
+    volumes:
+      - ./scripts/scripts
+      - ./shardsvr-01-02:/db
+    command: mongod --shardsvr --replSet rs-shard-server-01  --dbpath /db #--bind_ip localhost,<hostname(s)|ip address(es)>
+  shardsvr-01-03:
+    image: mongo
+    container_name: shardsvr-01-03
+    volumes:
+      - ./scripts/scripts
+      - ./shardsvr-01-03:/db
+    command: mongod --shardsvr --replSet rs-shard-server-01  --dbpath /db #--bind_ip localhost,<hostname(s)|ip address(es)>
+
+  shardsvr-02-01:
+    image: mongo
+    container_name: shardsvr-02-01
+    volumes:
+      - ./scripts/scripts
+      - ./shardsvr-02-01:/db
+    command: mongod --shardsvr --replSet rs-shard-server-02  --dbpath /db #--bind_ip localhost,<hostname(s)|ip address(es)>
+  shardsvr-02-02:
+    image: mongo
+    container_name: shardsvr-02-02
+    volumes:
+      - ./scripts/scripts
+      - ./shardsvr-02-02:/db
+    command: mongod --shardsvr --replSet rs-shard-server-02  --dbpath /db #--bind_ip localhost,<hostname(s)|ip address(es)>
+  shardsvr-02-03:
+    image: mongo
+    container_name: shardsvr-02-03
+    volumes:
+      - ./scripts/scripts
+      - ./shardsvr-02-03:/db
+    command: mongod --shardsvr --replSet rs-shard-server-02  --dbpath /db #--bind_ip localhost,<hostname(s)|ip address(es)>
+
+  mongossvr-01:
+    image: mongo
+    container_name: mongossvr-01
+    volumes:
+      - ./scripts/scripts
+      - ./mongossvr-01:/db
+    links:
+      - configsvr-01
+      - configsvr-02
+      - configsvr-03
+      - shardsvr-01-01
+      - shardsvr-01-02
+      - shardsvr-01-03
+      - shardsvr-02-01
+      - shardsvr-02-02
+      - shardsvr-02-03
+    command: mongos --configdb rs-config-server/configsvr-01:27017,configsvr-02:27017,configsvr-03:27017 #--bind_ip localhost,<hostname(s)|ip address(es)>
+
+  mongossvr-02:
+    image: mongo
+    container_name: mongossvr-02
+    volumes:
+      - ./scripts/scripts
+      - ./mongossvr-02:/db
+    links:
+      - configsvr-01
+      - configsvr-02
+      - configsvr-03
+      - shardsvr-01-01
+      - shardsvr-01-02
+      - shardsvr-01-03
+      - shardsvr-02-01
+      - shardsvr-02-02
+      - shardsvr-02-03
+    command: mongos --configdb rs-config-server/configsvr-01:27017,configsvr-02:27017,configsvr-03:27017 #--bind_ip localhost,<hostname(s)|ip address(es)>
