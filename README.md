@@ -18,7 +18,7 @@ https://github.com/minhhungit/mongodb-cluster-docker-compose
 
 
 ```
-$make
+╰─➤  make
                                                                           
 Makefile for docker compose mongo cluster                                                  
                                                                           
@@ -31,6 +31,9 @@ Usage:
    make logs                           查看日志                            
                                                                           
                                                                           
+   make rm-data                        删除数据目录，谨慎操作，避免数据丢失    
+                                                                          
+                                                                          
    make init-config                    初始化config集群                    
    make init-shard                     初始化shard1，shard2                
    make add-shard                      shard1，shard2加入集群              
@@ -39,9 +42,7 @@ Usage:
                                                                           
    make echo-status                    查看集群状态                         
    make echo-shard-status              查看分片状态                         
-   make others                         其他命令                            
-                                                                          
-                                         
+   make others                         其他命令   
 ```
 
 
