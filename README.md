@@ -44,3 +44,56 @@ Usage:
                                          
 ```
 
+
+## 搭建集群
+
+- 启动进程
+
+```bash
+make up
+```
+
+
+- 初始化config复制集
+
+
+```bash
+make init-config
+```
+- 初始化shard1，shard2
+
+
+```bash
+make init-shard
+```
+- 将shard1，shard2加入到集群
+
+
+```bash
+make add-shard
+```
+
+- 创建MyDatabase数据库，MyCollection 集合
+
+```bash
+make create-database
+```
+
+- 连接
+```bash
+mongo --port 27017
+
+```
+```
+show dbs
+use Mydatabase
+db.MyCollection.getShardDistribution()
+db.MyCollection.find()
+```
+
+
+
+
+
+
+
