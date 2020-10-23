@@ -36,7 +36,7 @@ help:
 .PHONY: create-key
 create-key:
 	openssl rand -base64 756 > ./key/key.file
-	chmod 400 /key/key.file
+	chmod 400 ./key/key.file
 
 # up docker-compose
 .PHONY: up
