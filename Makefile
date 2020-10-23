@@ -35,7 +35,10 @@ help:
 	@echo '                                                                          '
 
 
-#   linux启动进程报错，解决方案：https://segmentfault.com/q/1010000020297970
+#   linux启动进程报错，
+# 解决方案：
+# https://segmentfault.com/q/1010000020297970
+# 这里是因为文件的所有者问题导致的：使用docker启动mongodb后，使用的用户是systemd-coredump，也就是999
 .PHONY: create-key
 create-key:
 	openssl rand -base64 756 > ./key/key.file
