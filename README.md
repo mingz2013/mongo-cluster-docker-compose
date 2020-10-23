@@ -12,6 +12,15 @@ https://github.com/minhhungit/mongodb-cluster-docker-compose
 https://docs.mongodb.com/manual/tutorial/deploy-sharded-cluster-with-keyfile-access-control/
 
 
+https://blog.csdn.net/qq_31150503/article/details/109118459
+https://www.codetd.com/pt/article/11964970
+
+
+
+https://segmentfault.com/q/1010000020297970
+
+
+
 ## setup
 [setup](./doc/setups.md)
 

@@ -35,10 +35,13 @@ help:
 	@echo '                                                                          '
 
 
+#   linux启动进程报错，解决方案：https://segmentfault.com/q/1010000020297970
 .PHONY: create-key
 create-key:
 	openssl rand -base64 756 > ./key/key.file
 	chmod 400 ./key/key.file
+	chown 999 ./key/key.file
+
 
 # up docker-compose
 .PHONY: up
@@ -101,6 +104,8 @@ add-shard:
 .PHONY: create-database
 create-database:
 	docker-compose exec mongossvr-01 sh -c "mongo < /scripts/mongos.create.database.js"
+	docker-compose exec mongossvr-01 sh -c "mongo < /scripts/mongos.create.collections.js"
+	docker-compose exec mongossvr-01 sh -c "mongo < /scripts/mongos.create.index.js"
 
 
 
