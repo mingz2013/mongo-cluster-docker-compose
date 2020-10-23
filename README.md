@@ -9,6 +9,8 @@ https://docs.mongodb.com/manual/tutorial/deploy-shard-cluster/
 https://github.com/minhhungit/mongodb-cluster-docker-compose
 
 
+https://docs.mongodb.com/manual/tutorial/deploy-sharded-cluster-with-keyfile-access-control/
+
 
 ## setup
 [setup](./doc/setups.md)
@@ -70,8 +72,23 @@ make init-config
 ```bash
 make init-shard
 ```
-- 将shard1，shard2加入到集群
 
+
+
+- create-shard-local-user-admin
+```bash
+make create-shard-local-user-admin
+```
+
+
+- create-shard-local-cluster-admin
+```bash
+make create-shard-local-cluster-admin
+```
+
+
+
+- 将shard1，shard2加入到集群
 
 ```bash
 make add-shard

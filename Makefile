@@ -22,7 +22,9 @@ help:
 	@echo '                                                                          '
 	@echo '   make init-config                    初始化config集群                    '
 	@echo '   make init-shard                     初始化shard1，shard2                '
-	@echo '   make add-shard                      shard1，shard2加入集群              '
+	@echo '   make create-shard-local-user-admin                                     '
+	@echo '   make create-shard-local-cluster-admin                                  '
+	@echo '   make add-shard                      shard1，shard2加入集群               '
 	@echo '   make create-database                创建database MyDatabase             '
 	@echo '                                                                          '
 	@echo '                                                                          '
@@ -75,6 +77,19 @@ init-config:
 init-shard:
 	docker-compose exec shardsvr-01-01 sh -c "mongo < /scripts/shard1.initiate.js"
 	docker-compose exec shardsvr-02-01 sh -c "mongo < /scripts/shard2.initiate.js"
+
+.PHONY: create-shard-local-user-admin
+create-shard-local-user-admin:
+	docker-compose exec shardsvr-01-01 sh -c "mongo < /scripts/create.admin.js"
+	docker-compose exec shardsvr-02-01 sh -c "mongo < /scripts/create.admin.js"
+	docker-compose exec mongossvr-01 sh -c "mongo < /scripts/create.admin.js"
+
+.PHONY: create-shard-local-cluster-admin
+create-shard-local-cluster-admin:
+	docker-compose exec shardsvr-01-01 sh -c "mongo < /scripts/create.cluster.admin.js"
+	docker-compose exec shardsvr-02-01 sh -c "mongo < /scripts/create.cluster.admin.js"
+	docker-compose exec mongossvr-01 sh -c "mongo < /scripts/create.cluster.admin.js"
+
 
 # add shard1, shard2 to cluster
 .PHONY: add-shard
