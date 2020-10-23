@@ -7,6 +7,8 @@ help:
 	@echo 'Usage:                                                                    '
 	@echo '   make help                           show help                          '
 	@echo '                                                                          '
+	@echo '   make create-key                     创建key                            '
+	@echo '                                                                          '
 	@echo '   make up                             启动服务                            '
 	@echo '   make restart                        重启服务                            '
 	@echo '   make down                           停止服务                            '
@@ -29,6 +31,12 @@ help:
 	@echo '   make others                         其他命令                            '
 	@echo '                                                                          '
 	@echo '                                                                          '
+
+
+.PHONY: create-key
+create-key:
+	openssl rand -base64 756 > ./key/key.file
+	chmod 400 /key/key.file
 
 # up docker-compose
 .PHONY: up
