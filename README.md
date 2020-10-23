@@ -53,6 +53,12 @@ Usage:
 
 ## 搭建集群
 
+- create-key
+
+```bash
+make create-key
+```
+
 - 启动进程
 
 ```bash
