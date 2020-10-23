@@ -83,7 +83,7 @@ services:
       - shardsvr-02-01
       - shardsvr-02-02
       - shardsvr-02-03
-    command: mongos --auth --configdb rs-config-server/configsvr-01:27017,configsvr-02:27017,configsvr-03:27017 --port 27017 --bind_ip_all #--bind_ip localhost,<hostname(s)|ip address(es)>
+    command: mongos --configdb rs-config-server/configsvr-01:27017,configsvr-02:27017,configsvr-03:27017 --port 27017 --bind_ip_all #--bind_ip localhost,<hostname(s)|ip address(es)>
     ports:
       - 27017:27017
 
@@ -103,4 +103,4 @@ services:
       - shardsvr-02-01
       - shardsvr-02-02
       - shardsvr-02-03
-    command: mongos --auth --configdb rs-config-server/configsvr-01:27017,configsvr-02:27017,configsvr-03:27017 --port 27017 --bind_ip_all #--bind_ip localhost,<hostname(s)|ip address(es)>
+    command: mongos --configdb rs-config-server/configsvr-01:27017,configsvr-02:27017,configsvr-03:27017 --port 27017 --bind_ip_all #--bind_ip localhost,<hostname(s)|ip address(es)>
