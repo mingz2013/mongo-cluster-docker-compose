@@ -18,7 +18,7 @@ https://github.com/minhhungit/mongodb-cluster-docker-compose
 
 
 ```
-╰─➤  make
+·> make
                                                                           
 Makefile for docker compose mongo cluster                                                  
                                                                           
@@ -26,6 +26,7 @@ Usage:
    make help                           show help                          
                                                                           
    make up                             启动服务                            
+   make restart                        重启服务                            
    make down                           停止服务                            
    make rm                             移除集群                            
    make logs                           查看日志                            
@@ -44,7 +45,7 @@ Usage:
    make echo-status                    查看集群状态                         
    make echo-shard-status              查看分片状态                         
    make others                         其他命令                            
-                                                     
+                            
 ```
 
 

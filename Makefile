@@ -8,6 +8,7 @@ help:
 	@echo '   make help                           show help                          '
 	@echo '                                                                          '
 	@echo '   make up                             启动服务                            '
+	@echo '   make restart                        重启服务                            '
 	@echo '   make down                           停止服务                            '
 	@echo '   make rm                             移除集群                            '
 	@echo '   make logs                           查看日志                            '
@@ -33,6 +34,28 @@ help:
 .PHONY: up
 up:
 	docker-compose up -d
+
+.PHONY: restart
+restart:
+	docker-compose restart
+
+
+# To remove all data and re-initialize the cluster, make sure the containers are stopped and then:
+.PHONY: rm
+rm:
+	docker-compose rm
+
+# clean up docker-compose
+.PHONY: down
+down:
+	docker-compose down -v --remove-orphans
+
+# logs
+.PHONY: logs
+logs:
+	docker-compose logs -f
+
+
 
 # init config
 .PHONY: init-config
@@ -81,20 +104,6 @@ others:
 	docker exec -it shardsvr-01-01 bash -c "echo 'rs.printSlaveReplicationInfo()' | mongo --port 27017"
 
 
-# To remove all data and re-initialize the cluster, make sure the containers are stopped and then:
-.PHONY: rm
-rm:
-	docker-compose rm
-
-# clean up docker-compose
-.PHONY: down
-down:
-	docker-compose down -v --remove-orphans
-
-# logs
-.PHONY: logs
-logs:
-	docker-compose logs -f
 
 # rm data
 .PHONY: rm-data
