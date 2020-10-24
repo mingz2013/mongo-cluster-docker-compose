@@ -22,6 +22,10 @@ https://segmentfault.com/q/1010000020297970
 https://blog.csdn.net/mingshao104/article/details/89845305
 
 
+https://www.docker.com/
+
+https://docs.docker.com/engine/install/centos/
+
 ## setup
 [setup](./doc/setups.md)
 
@@ -79,6 +83,7 @@ make create-key
 make up
 ```
 
+chmod 777 datas -R
 
 - 初始化config复制集
 
