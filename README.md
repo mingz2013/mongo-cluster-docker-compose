@@ -83,7 +83,10 @@ make create-key
 make up
 ```
 
-chmod 777 datas -R
+如启动失败，查看日志，  
+修改数据目录权限，`chmod 777 datas -R`  
+重新启动  
+
 
 - 初始化config复制集
 
@@ -91,6 +94,8 @@ chmod 777 datas -R
 ```bash
 make init-config
 ```
+
+
 - 初始化shard1，shard2
 
 
@@ -101,12 +106,18 @@ make init-shard
 
 
 - create-shard-local-user-admin
+
+创建账号
+
 ```bash
 make create-shard-local-user-admin
 ```
 
 
 - create-shard-local-cluster-admin
+
+创建账号
+
 ```bash
 make create-shard-local-cluster-admin
 ```
