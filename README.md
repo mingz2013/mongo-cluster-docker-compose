@@ -103,7 +103,11 @@ make init-config
 make init-shard
 ```
 
+- 将shard1，shard2加入到集群
 
+```bash
+make add-shard
+```
 
 - create-shard-local-user-admin
 
@@ -124,11 +128,7 @@ make create-shard-local-cluster-admin
 
 
 
-- 将shard1，shard2加入到集群
 
-```bash
-make add-shard
-```
 
 - 创建MyDatabase数据库，MyCollection 集合
 

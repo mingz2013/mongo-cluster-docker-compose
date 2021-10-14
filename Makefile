@@ -43,7 +43,7 @@ help:
 create-key:
 	openssl rand -base64 756 > ./key/key.file
 	chmod 400 ./key/key.file
-	chown 999 ./key/key.file
+# 	chown 999 ./key/key.file
 
 
 # up docker-compose
@@ -84,6 +84,12 @@ init-shard:
 	docker-compose exec shardsvr-01-01 sh -c "mongo < /scripts/shard1.initiate.js"
 	docker-compose exec shardsvr-02-01 sh -c "mongo < /scripts/shard2.initiate.js"
 
+# add shard1, shard2 to cluster
+.PHONY: add-shard
+add-shard:
+	docker-compose exec mongossvr-01 sh -c "mongo < /scripts/mongos.addshard.js"
+
+
 .PHONY: create-shard-local-user-admin
 create-shard-local-user-admin:
 	docker-compose exec shardsvr-01-01 sh -c "mongo < /scripts/create.admin.js"
@@ -95,12 +101,6 @@ create-shard-local-cluster-admin:
 	docker-compose exec shardsvr-01-01 sh -c "mongo < /scripts/create.cluster.admin.js"
 	docker-compose exec shardsvr-02-01 sh -c "mongo < /scripts/create.cluster.admin.js"
 	docker-compose exec mongossvr-01 sh -c "mongo < /scripts/create.cluster.admin.js"
-
-
-# add shard1, shard2 to cluster
-.PHONY: add-shard
-add-shard:
-	docker-compose exec mongossvr-01 sh -c "mongo < /scripts/mongos.addshard.js"
 
 
 # create database MyDatabase
